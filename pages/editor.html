@@ -30,42 +30,11 @@
 	<a href="#contact">Contact</a>
 	<a href="#about">About</a>
 </div>
-<script>var require = { paths: { 'vs': '../node_modules/monaco-editor/min/vs' } };</script>
-<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
-<script src="../node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
-<script src="../node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
 
 <div id="Editor" class="tabcontent">  
 <script>
-	var editor = monaco.editor.create(document.getElementById('container'), {
-		value: [
-			'function x() {',
-			'\tconsole.log("Hello world!");',
-			'}'
-		].join('\n'),
-		language: 'javascript'
-	});
-	monaco.editor.setTheme('vs-dark');
-
-var myBinding = editor.addCommand(monaco.KeyCode.F9, function() {
-
-editor.changeViewZones(accessor => {
-    const domNode = document.createElement('div');
-    const zone = {
-        afterLineNumber: 2,
-        heightInLines: 3,
-        domNode,
-		
-    };
-	
-    accessor.addZone(zone);
-});
-
-});
+		//mete aqui o codigo do editor para ele fazer resize consoante o tamanho da window
 </script>
-	<script>
-		document.getElementById("editorActive").click();
-	</script>
 </div>
 
 </body>
