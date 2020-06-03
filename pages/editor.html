@@ -1,15 +1,43 @@
-<!DOCTYPE html>
-<html>
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-	<link rel="stylesheet" data-name="vs/editor/editor.main" href="../node_modules/monaco-editor/min/vs/editor/editor.main.css">
-	<link rel="stylesheet" href="../CSS/editor.css">
-	<script src="../scripts/fucntions.js"></script>
+<!DOCTYPE html>
+<meta charset="UTF-8"> 
+
+
+<link rel="stylesheet" href="../CSS/editor.css">
+<!-- code mirror !-->
+<script src="../CodeMirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="../CodeMirror/lib/codemirror.css">
+<link rel="stylesheet" href="../CodeMirror/addon/dialog/dialog.css">
+<link rel="stylesheet" href="../CodeMirror/theme/monokai.css">
+
+<script src="../CodeMirror/mode/javascript/javascript.js"></script>
+<script src="../CodeMirror/addon/search/searchcursor.js"></script>
+<script src="../CodeMirror/addon/search/search.js"></script>
+<script src="../CodeMirror/addon/dialog/dialog.js"></script>
+<script src="../CodeMirror/addon/fold/brace-fold.js"></script>
+<script src="../CodeMirror/keymap/sublime.js"></script>
+<script src="../CodeMirror/addon/minimap/minimap.js"></script>
+<style>
+
+#Code{
+	width:100%;
+}
+.CodeMirror {
+display: flex;
+flex-flow: column;
+ height: 100%; 
+ }
+body{
+height: 100%;
+	margin:0;
+}
+
+audio {
+	border-radius: 20px;
+}
+</style>
 </head>
 <body>
-
-
 <div class="tab">
 	<button class="tablinks" onclick="openTab(event, 'Editor')" id="editorActive">Editor</button>
 	<button class="tablinks" onclick="openTab(event, 'video')">Video-Aulas</button>
@@ -22,8 +50,7 @@
 		</select>
 	</div>
 </div>
-
-<div id="container" class="containerEditor"></div>
+<div id="Code" class="containerEditor"></div>
 <div class="topnav">
 	<a class="active" href="/pages/dashboard.html">Home</a>
 	<a href="#news">News</a>
@@ -31,11 +58,25 @@
 	<a href="#about">About</a>
 </div>
 
-<div id="Editor" class="tabcontent">  
 <script>
-		//mete aqui o codigo do editor para ele fazer resize consoante o tamanho da window
+
+var tempCodeEditor = CodeMirror(document.getElementById('Code'), {
+	value: "console.log(\"test\")\n\n\n",
+	mode: "javascript",
+	lineNumbers: true,
+	keyMap: "sublime",
+    autoCloseBrackets: true,
+    matchBrackets: true,
+    showCursorWhenSelecting: true,
+    theme: "monokai",
+    tabSize: 2
+});
+var miniMapControl = new MiniMap(tempCodeEditor);
+tempCodeEditor.on("change",function(){miniMapControl.mirrorContent(tempCodeEditor)});
+audio = document.createElement('audio');
+audio.controls = 'controls';
+audio.src      = '../files/sound.mp3';
+tempCodeEditor.addLineWidget(2,audio);
 </script>
-</div>
 
 </body>
-</html>
