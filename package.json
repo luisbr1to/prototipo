@@ -1,0 +1,16 @@
+{
+  "name": "monaco-editor-samples",
+  "version": "0.0.1",
+  "description": "Samples for using the Monaco Editor",
+  "main": "index.js",
+  "scripts": {
+    "simpleserver": "yaserver --root ./ --port 8888"
+  },
+  "author": "Microsoft Corporation",
+  "license": "MIT",
+  "dependencies": {
+    "monaco-editor": "^0.19.3",
+    "mysql": "^2.18.1",
+    "yaserver": "^0.2.0"
+  }
+}

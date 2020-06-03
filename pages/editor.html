@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	<link rel="stylesheet" data-name="vs/editor/editor.main" href="../node_modules/monaco-editor/min/vs/editor/editor.main.css">
+	<link rel="stylesheet" href="../CSS/editor.css">
+	<script src="../scripts/fucntions.js"></script>
+</head>
+<body>
+
+
+<div class="tab">
+	<button class="tablinks" onclick="openTab(event, 'Editor')" id="editorActive">Editor</button>
+	<button class="tablinks" onclick="openTab(event, 'video')">Video-Aulas</button>
+	<button class="tablinks" onclick="openTab(event, 'notes')">Notas</button>
+	<div class="topnav-right">
+		<select class="custom-select" style="width:150px;">
+			<option value="C">c#</option>
+			<option value="javascript" selected>Javascript</option>
+			<option value="java">Java</option>
+		</select>
+	</div>
+</div>
+
+<div id="container" class="containerEditor"></div>
+<div class="topnav">
+	<a class="active" href="#home">Home</a>
+	<a href="#news">News</a>
+	<a href="#contact">Contact</a>
+	<a href="#about">About</a>
+</div>
+<script>var require = { paths: { 'vs': '../node_modules/monaco-editor/min/vs' } };</script>
+<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+<script src="../node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+<script src="../node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+
+<div id="Editor" class="tabcontent">  
+<script>
+	var editor = monaco.editor.create(document.getElementById('container'), {
+		value: [
+			'function x() {',
+			'\tconsole.log("Hello world!");',
+			'}'
+		].join('\n'),
+		language: 'javascript'
+	});
+	monaco.editor.setTheme('vs-dark');
+</script>
+	<script>
+		document.getElementById("editorActive").click();
+	</script>
+</div>
+
+</body>
+</html>

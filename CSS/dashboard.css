@@ -1,0 +1,21 @@
+h1{
+    font-family: Arial;
+    font-size: 24px;
+}
+
+.topbar{
+    position: fixed;
+    top: 0;
+    left:0;
+    height: 60px;
+    width: 100%;
+    border-bottom:1px solid black;
+}
+
+.menulinks{
+    position: fixed;
+    right: 10px;
+    top:20px;
+}
+
+

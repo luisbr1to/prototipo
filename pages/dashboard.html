@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <script src="../scripts/user_details.js"></script>
+</head>
+<body>
+    <div class="topbar">
+        <h1 style="width: 150px; left: 30px; position:inherit;">Codement</h1>
+        <div class="menulinks">
+            <button class="btlinks" onclick="" id="editorActive">Dashboard</button>
+            <button class="btlinks" onclick="">Video-Aulas</button>
+            <button class="btlinks" onclick="">Notas</button>
+        </div>
+    </div>
+
+    <div style="position: fixed; top: 70px;">
+        <h2>Dashboard</h2>
+        <div>
+           <p id="cadeiras"></p> 
+        </div>
+        
+       <script>
+            if(user == "docente"){
+                document.getElementById("cadeiras").innerHTML = docente1;
+            }
+            if(user == "aluno"){
+                document.getElementById("cadeiras").innerHTML = aluno1;
+            }
+        </script> 
+    </div>
+
+
+
+</body>
+</html>
